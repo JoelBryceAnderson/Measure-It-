@@ -282,7 +282,7 @@ public class RulerView extends View {
         //Set new paint attributes
         mTextPaint.setColor(ContextCompat.getColor(getContext(), R.color.white));
         mTextPaint.setAlpha(mPointerAlpha);
-
+        
         String pointerLabel;
 
         if (!mIsMetric) {
@@ -299,7 +299,10 @@ public class RulerView extends View {
         float y = mPointerLocation;
         canvas.save();
         canvas.rotate(90, x, y);
-        canvas.drawText(pointerLabel, x - 40, y + 20, mTextPaint);//offset text to center in circle
+        if(pointerLabel.length() >= 4)
+            canvas.drawText(pointerLabel, x - 60, y + 20, mTextPaint);//offset text to center in circle for long labels
+        else
+            canvas.drawText(pointerLabel, x - 40, y + 20, mTextPaint);//offset text to center in circle for short labels
         canvas.restore();
 
         //Revert paint attributes
