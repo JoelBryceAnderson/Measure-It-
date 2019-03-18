@@ -5,7 +5,6 @@ import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
-import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Paint
@@ -16,6 +15,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.Keep
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.util.*
 
@@ -165,8 +165,8 @@ class RulerView : View {
     private fun measureViewport() {
         val dm = DisplayMetrics()
         //Ensure viewport can be measured (rare case, but better to check before casting)
-        if (context is Activity) {
-            (context as Activity).windowManager.defaultDisplay.getMetrics(dm)
+        if (context is AppCompatActivity) {
+            (context as AppCompatActivity).windowManager.defaultDisplay.getMetrics(dm)
             mYDPI = dm.ydpi
             mHeightInches = height / mYDPI
         } else Log.d("Error", "View not in activity, skipping measurements")
