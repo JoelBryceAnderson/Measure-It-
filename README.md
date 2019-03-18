@@ -1,10 +1,15 @@
 # Measure
 
-Simple Ruler Application with an emphasis on Material design. Can display metric or imperial units. Built around custom RulerView class.
+Simple Ruler Application with an emphasis on Material design.
+Can display metric and imperial units.
+Built around custom RulerView class.
 
 Created as part of Job Interview process at Tinder.
 
-[Available for download from the Google Play Store.](https://play.google.com/store/apps/details?id=abcmeasurecorp.com.measureit&hl=en)
+<a href="https://play.google.com/store/apps/details?id=abcmeasurecorp.com.measureit">
+    <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
+        alt="Get it on Google Play" height="80">
+</a>
 
-
-![Imperial](http://imgur.com/j1uGdCX.png) ![Metric](http://imgur.com/b9ftAIL.png)
+![Imperial](https://i.imgur.com/j1uGdCX.png)
+![Metric](https://i.imgur.com/b9ftAIL.png)

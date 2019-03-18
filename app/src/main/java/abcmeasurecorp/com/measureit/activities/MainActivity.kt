@@ -117,7 +117,10 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setRandomColor() {
         val rnd = Random()
-        mCurrentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+        mCurrentColor = Color.argb(255,
+                rnd.nextInt(256),
+                rnd.nextInt(256),
+                rnd.nextInt(256))
 
         animateBackgroundColor(mCurrentColor)
         ruler.animateAccentColor(mCurrentColor)
@@ -175,8 +178,7 @@ class MainActivity : AppCompatActivity() {
     private fun showColorDialog() = AlertDialog.Builder(this)
             .setView(R.layout.color_picker)
             .setNegativeButton(R.string.cancel, null)
-            .setNeutralButton(R.string.random_color
-            ) { _, _ -> setRandomColor() }
+            .setNeutralButton(R.string.random_color) { _, _ -> setRandomColor() }
             .show()
 
     private fun onColorSelected(dialog: AlertDialog) {
@@ -192,8 +194,10 @@ class MainActivity : AppCompatActivity() {
                                      button: AppCompatImageView) {
         val pixel = getSelectedPixel(event, colorSpectrum, bitmap)
         if (pixel != 0) {
-            mCurrentColor = Color.argb(
-                    255, Color.red(pixel), Color.green(pixel), Color.blue(pixel))
+            mCurrentColor = Color.argb(255,
+                    Color.red(pixel),
+                    Color.green(pixel),
+                    Color.blue(pixel))
             button.background.setColorFilter(mCurrentColor, PorterDuff.Mode.SRC_ATOP)
         }
     }

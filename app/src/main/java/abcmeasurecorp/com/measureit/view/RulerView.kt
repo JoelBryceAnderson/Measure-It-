@@ -92,7 +92,8 @@ class RulerView : View {
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int)
+            : super(context, attrs, defStyleAttr, defStyleRes) {
         initPaints()
         initAttributes(context, attrs)
     }
@@ -203,7 +204,9 @@ class RulerView : View {
             val strokeLocation = (i.toDouble() / 10.0 / 2.54).toFloat() * mYDPI
             canvas.drawLine(0f, strokeLocation, lineWidth.toFloat(), strokeLocation, mPaint)
 
-            drawLabel(canvas, i / 10, lineWidth - labelTextSize, strokeLocation + labelTextSize / 2)
+            drawLabel(canvas, i / 10,
+                    lineWidth - labelTextSize,
+                    strokeLocation + labelTextSize / 2)
 
             i += 1f
         }
@@ -300,7 +303,8 @@ class RulerView : View {
         mTextPaint.alpha = mPointerAlpha
 
         val labelValue = if (!isMetric) mPointerLocation else mPointerLocation * 2.54f
-        val pointerLabel = String.format(Locale.getDefault(), "%.2f", labelValue / mYDPI) //Round to tenth place
+        val pointerLabel = String.format(
+                Locale.getDefault(), "%.2f", labelValue / mYDPI) //Round to tenth place
 
         //Draw Label in circle
         val circleRadius = width / 8
@@ -308,7 +312,7 @@ class RulerView : View {
         val y = if (pointerLabel.length > 4) mPointerLocation - labelTextSize / 4 else mPointerLocation
         canvas.save()
         canvas.rotate(90f, x, y)
-        canvas.drawText(pointerLabel, x - labelTextSize, y, mTextPaint)//offset text to center in circle
+        canvas.drawText(pointerLabel, x - labelTextSize, y, mTextPaint) //offset text to center in circle
         canvas.restore()
 
         //Revert paint attributes
